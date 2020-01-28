@@ -1,7 +1,22 @@
 nav {
   overflow: hidden;
-  background-color: lightblue;
+  background-color: #4056A1;
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
+  height: 120px;  
+  color: #FFFFFF;
+  z-index: -1;
+}
+
+nav div {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  margin-right: 1.5em;
+  margin-left: 1.5em;
+}
+
+nav span {
+  font-family: 'Bungee', cursive;
+  font-size: 40px;
 }
