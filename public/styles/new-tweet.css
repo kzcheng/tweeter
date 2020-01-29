@@ -1,0 +1,32 @@
+section.new-tweet {
+  padding-top: 100px;
+}
+
+textarea.new-tweet-input {
+  border: none;
+  outline: none;
+  background: none;
+  resize: none;
+  border-bottom: #545149 solid;
+  width: 100%;
+  height: auto;
+}
+
+div.submit-and-word-counter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+span.counter {
+  text-align: right;
+}
+
+input.submit-button {
+  background-color: #4056A1;
+  border: none;
+  color: white;
+  text-align: center;
+  font-family: 'Bungee', cursive;
+  padding: 10px 20px;
+}

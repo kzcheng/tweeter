@@ -1,0 +1,15 @@
+header {
+  width: 100%;
+  background-color: #e09a31;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+  padding-bottom: 1.5em;
+}
+
+#avatar {
+  padding-top: 1.5em;
+  text-align: center;
+}
+
+#user-name {
+  text-align: center;
+}
