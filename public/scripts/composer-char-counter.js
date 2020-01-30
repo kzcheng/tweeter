@@ -1,0 +1,1 @@
+console.log("composer-char-counter.js successfully loaded.");
