@@ -1,0 +1,35 @@
+.tweet {
+  border: 5px solid;
+  margin: 40px 0px;
+}
+
+.tweet-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tweet-header-left {
+  width: 100%;
+  display: flex;
+}
+
+.tweet-text {
+  border-bottom: #545149 solid;
+  width: 95%;
+  margin: auto;
+}
+
+.tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+  margin: 10px 10px;
+}
+
+.tweet-date {}
+
+i.fa {
+  margin: 1px 1px;
+  opacity: 0;
+}
