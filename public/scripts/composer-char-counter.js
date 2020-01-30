@@ -10,6 +10,5 @@ $(document).ready(() => {
     } else {
       $("span.counter").css('color', 'red');
     }
-    
   });
 });
