@@ -31,93 +31,91 @@ const tweetDatabase = [
   }
 ];
 
-const getStringDayDifference = function(tweetData) {
-  // let diff = new moment.duration(Date.now() - tweetData.created_at);
-
-  // return Math.floor(diff.asDays());
-
+const getStringDateDifference = function(tweetData) {
   return moment(tweetData.created_at).fromNow();
 };
 
 const createTweetElement = function(tweetData) {
   // .tweet
-  let $tweet = $(`<article></article>`)
+  let $tweet = $(`<article>`)
     .addClass(`tweet`);
 
   // .tweet-header
-  let $tweetHeader = $(`<header></header>`)
+  let $tweetHeader = $(`<header>`)
     .addClass(`tweet-header`);
   $tweet.append($tweetHeader);
 
   // .tweet-header-left
-  let $tweetHeaderLeft = $(`<div></div>`)
+  let $tweetHeaderLeft = $(`<div>`)
     .addClass(`tweet-header-left`);
   $tweetHeader.append($tweetHeaderLeft);
 
   // .tweet-avatar
-  let $tweetAvatar = $(`<div></div>`)
+  let $tweetAvatar = $(`<div>`)
     .addClass(`tweet-avatar`);
   $tweetAvatar.append($('<img>').attr('src', tweetData.user.avatars));
   $tweetHeaderLeft.append($tweetAvatar);
 
   // .tweet-poster-name
-  let $tweetPosterName = $(`<div></div>`)
+  let $tweetPosterName = $(`<div>`)
     .addClass(`tweet-poster-name`)
     .text(tweetData.user.name);
   $tweetHeaderLeft.append($tweetPosterName);
 
   // .tweet-header-right
-  let $tweetHeaderRight = $(`<div></div>`)
+  let $tweetHeaderRight = $(`<div>`)
     .addClass(`tweet-header-right`);
   $tweetHeader.append($tweetHeaderRight);
 
   // .tweet-poster-username
-  let $tweetPosterUsername = $(`<div></div>`)
+  let $tweetPosterUsername = $(`<div>`)
     .addClass(`tweet-poster-username`)
     .text(tweetData.user.handle);
   $tweetHeaderRight.append($tweetPosterUsername);
 
   // .tweet-body
-  let $tweetBody = $(`<body></body>`)
+  let $tweetBody = $(`<div>`)
     .addClass(`tweet-body`);
   $tweet.append($tweetBody);
 
   // .tweet-text
-  let $tweetText = $(`<div></div>`)
+  let $tweetText = $(`<div>`)
     .addClass(`tweet-text`)
     .text(tweetData.content.text);
   $tweetBody.append($tweetText);
 
   // .tweet-footer
-  let $tweetFooter = $(`<footer></footer>`)
+  let $tweetFooter = $(`<footer>`)
     .addClass(`tweet-footer`);
   $tweet.append($tweetFooter);
 
   // .tweet-date
-  let $tweetDate = $(`<div></div>`)
+  let $tweetDate = $(`<div>`)
     .addClass(`tweet-date`)
-    .text(`${getStringDayDifference(tweetData)}`);
+    .text(`${getStringDateDifference(tweetData)}`);
   $tweetFooter.append($tweetDate);
 
   // .tweet-buttons
-  let $tweetButtons = $(`<div></div>`)
+  let $tweetButtons = $(`<div>`)
     .addClass(`tweet-buttons`);
-  $tweetButtons.append(`<i class="fa fa-flag" aria-hidden="true"></i>
-    <i class="fa fa-retweet" aria-hidden="true"></i>
-    <i class="fa fa-heart" aria-hidden="true"></i>`);
+  $tweetButtons.append(`
+      <i class="fa fa-flag" aria-hidden="true"></i>
+      <i class="fa fa-retweet" aria-hidden="true"></i>
+      <i class="fa fa-heart" aria-hidden="true"></i>
+    `);
   $tweetFooter.append($tweetButtons);
     
   return $tweet;
 };
 
 const renderTweets = function(tweets) {
+  const container = $('#tweets-container');
   for (const tweet of tweets) {
-    $('#tweets-container').append(createTweetElement(tweet));
+    container.append(createTweetElement(tweet));
   }
 };
 
 $(document).ready(() => {
   renderTweets(tweetDatabase);
-
 });
 
