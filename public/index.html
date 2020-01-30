@@ -21,12 +21,11 @@
 
   <!-- External JS -->
   <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
-
-  <!-- App JS -->
-  <script type="text/javascript" src="/scripts/client.js"></script>
-
-  <!-- Font Awesome CDN -->
   <script src="https://use.fontawesome.com/5b1064948b.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script>
+    moment().format();
+  </script>
 </head>
 
 <body>
@@ -60,48 +59,51 @@
       </form>
     </section>
 
-    <article class="tweet">
-      <header class="tweet-header">
-        <div class="tweet-header-left">
-          <div class="tweet-avatar">
-            [jpg]
+    <div id="tweets-container">
+      <article class="tweet">
+        <header class="tweet-header">
+          <div class="tweet-header-left">
+            <div class="tweet-avatar">
+              <img src="https://i.imgur.com/73hZDYK.png">
+            </div>
+            <div class="tweet-poster-name">
+              Newton
+            </div>
           </div>
-          <div class="tweet-poster-name">
-            Newton
+          <div class="tweet-header-right">
+            <div class="tweet-poster-username">
+              @SirIsaac
+            </div>
           </div>
-        </div>
-        <div class="tweet-header-right">
-          <div class="tweet-poster-username">
-            @SirIsaac
-          </div>
-        </div>
-      </header>
+        </header>
 
-      <body>
-        <div class="tweet-text">
-          Something Something
-        </div>
-      </body>
+        <body class="tweet-body">
+          <div class="tweet-text">
+            Something Something
+          </div>
+        </body>
 
-      <footer class="tweet-footer">
-        <div class="tweet-date">
-          Today
-        </div>
-        <div class="tweet-buttons">
-          <i class="fa fa-flag" aria-hidden="true"></i>
-          <i class="fa fa-retweet" aria-hidden="true"></i>
-          <i class="fa fa-heart" aria-hidden="true"></i>
-        </div>
-      </footer>
-    </article>
+        <footer class="tweet-footer">
+          <div class="tweet-date">
+            Today
+          </div>
+          <div class="tweet-buttons">
+            <i class="fa fa-flag" aria-hidden="true"></i>
+            <i class="fa fa-retweet" aria-hidden="true"></i>
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </div>
+        </footer>
+      </article>
+    </div>
 
   </main>
 
 </body>
 
-<!-- Load Javascripts -->
+<!-- App JS -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="scripts/composer-char-counter.js"></script>
-<script src="scripts/tweet-hover.js"></script>
+<!-- <script src="scripts/tweet-hover.js"></script> -->
+<script src="scripts/client.js"></script>
 
 </html>

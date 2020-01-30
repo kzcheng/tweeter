@@ -3,6 +3,10 @@
   margin: 40px 0px;
 }
 
+.tweet:hover .tweet-buttons {
+  opacity: 1;
+}
+
 .tweet-header {
   display: flex;
   justify-content: space-between;
@@ -27,9 +31,10 @@
   margin: 10px 10px;
 }
 
-.tweet-date {}
+.tweet-buttons {
+  opacity: 0;
+}
 
 i.fa {
   margin: 1px 1px;
-  opacity: 0;
 }
