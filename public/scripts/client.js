@@ -115,13 +115,16 @@ $(document).ready(() => {
         loadTweets(renderTweets);
       });
       $(`textarea.new-tweet-input`).val('');
+      $("span.counter").text(`140`);
     }
   });
 
   // Toggle New Tweet
   const $button = $(`#toggle-new-tweet`);
   $button.click(function() {
-    $(`.new-tweet`).slideToggle();
+    $(`.new-tweet`).slideToggle(function() {
+      $(".new-tweet-input").focus();
+    });
   });
 });
 

@@ -1,5 +1,6 @@
 section.new-tweet {
   padding-top: 100px;
+  display: none;
 }
 
 textarea.new-tweet-input {
