@@ -115,7 +115,33 @@ const renderTweets = function(tweets) {
   }
 };
 
+// const loadTweets = function() {
+  
+// };
+
 $(document).ready(() => {
   renderTweets(tweetDatabase);
+
+  // Useable button
+  const $form = $(`section.new-tweet form`);
+
+  
+
+  $form.submit(function(event) {
+    event.preventDefault();
+    // console.log($form.serialize());
+    
+    $.ajax('/tweets', { method: 'POST', data: $form.serialize() })
+      .then((res) => {
+        console.log(res);
+      });
+
+
+    // $.ajax('more-posts.html', { method: 'GET' })
+    //   .then(function(morePostsHtml) {
+    //     console.log('Success: ', morePostsHtml);
+    //     $button.replaceWith(morePostsHtml);
+    //   });
+  });
 });
 
