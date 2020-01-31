@@ -115,35 +115,26 @@ const renderTweets = function(tweets) {
   }
 };
 
-const loadTweets = function(cb) {
-  $.ajax('/tweets', { method: 'GET' })
-    .then((res) => {
-      return res;
-    })
-    .then(cb);
+const loadTweets = function(callback) {
+  $.get('/tweets').then(callback);
 };
 
 $(document).ready(() => {
-  // renderTweets(tweetDatabase);
   loadTweets(renderTweets);
 
   // Useable button
   const $form = $(`section.new-tweet form`);
   $form.submit(function(event) {
     event.preventDefault();
-    // console.log($form.serialize());
-    
-    $.ajax('/tweets', { method: 'POST', data: $form.serialize() })
-      .then((res) => {
-        console.log(res);
-      });
 
-
-    // $.ajax('more-posts.html', { method: 'GET' })
-    //   .then(function(morePostsHtml) {
-    //     console.log('Success: ', morePostsHtml);
-    //     $button.replaceWith(morePostsHtml);
-    //   });
+    const tweet = $form.serializeArray()[0].value;
+    if (tweet.length <= 0) {
+      alert(`Tweet is empty!`);
+    } else if (tweet.length > 140) {
+      alert("Tweet is too long!");
+    } else {
+      $.post('/tweets', $form.serialize());
+    }
   });
 });
 
