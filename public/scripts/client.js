@@ -115,18 +115,20 @@ const renderTweets = function(tweets) {
   }
 };
 
-// const loadTweets = function() {
-  
-// };
+const loadTweets = function(cb) {
+  $.ajax('/tweets', { method: 'GET' })
+    .then((res) => {
+      return res;
+    })
+    .then(cb);
+};
 
 $(document).ready(() => {
-  renderTweets(tweetDatabase);
+  // renderTweets(tweetDatabase);
+  loadTweets(renderTweets);
 
   // Useable button
   const $form = $(`section.new-tweet form`);
-
-  
-
   $form.submit(function(event) {
     event.preventDefault();
     // console.log($form.serialize());
