@@ -17,6 +17,8 @@ nav div {
   margin-bottom: 1.5em;
   margin-right: 1.5em;
   margin-left: 1.5em;
+  display: flex;
+  justify-content: space-between;
 }
 
 nav span {

@@ -30,3 +30,8 @@ input.submit-button {
   font-family: 'Bungee', cursive;
   padding: 10px 20px;
 }
+
+div.error-message {
+  color: red;
+  border: red solid;
+}

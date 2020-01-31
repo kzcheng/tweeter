@@ -31,8 +31,9 @@
 <body>
   <!-- Top nav bar (fixed) -->
   <nav>
-    <div>
+    <div id="nav-bar">
       <span>tweeter</span>
+      <button id="toggle-new-tweet" type="button">Write New Tweet</button>
     </div>
   </nav>
 
@@ -50,6 +51,7 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+      <div class="error-message">Error Message</div>
       <form method="POST" action="/tweets">
         <textarea class="new-tweet-input" name="text" placeholder="What are you humming about?"></textarea>
         <div class="submit-and-word-counter">

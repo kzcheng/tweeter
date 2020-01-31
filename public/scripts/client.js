@@ -109,9 +109,10 @@ const createTweetElement = function(tweetData) {
 };
 
 const renderTweets = function(tweets) {
-  const container = $('#tweets-container');
-  for (const tweet of tweets) {
-    container.append(createTweetElement(tweet));
+  const $container = $('#tweets-container');
+  $container.empty();
+  for (let i = tweets.length - 1; i >= 0; i--) {
+    $container.append(createTweetElement(tweets[i]));
   }
 };
 
@@ -121,6 +122,7 @@ const loadTweets = function(callback) {
 
 $(document).ready(() => {
   loadTweets(renderTweets);
+  $(`div.error-message`).hide();
 
   // Useable button
   const $form = $(`section.new-tweet form`);
@@ -129,12 +131,22 @@ $(document).ready(() => {
 
     const tweet = $form.serializeArray()[0].value;
     if (tweet.length <= 0) {
-      alert(`Tweet is empty!`);
+      $("div.error-message").text(`Tweet is empty!`).slideDown();
     } else if (tweet.length > 140) {
-      alert("Tweet is too long!");
+      $("div.error-message").text(`Tweet is too long!`).slideDown();
     } else {
-      $.post('/tweets', $form.serialize());
+      $("div.error-message").slideUp();
+      $.post('/tweets', $form.serialize()).done(()=>{
+        loadTweets(renderTweets);
+      });
+      $(`textarea.new-tweet-input`).val('');
     }
+  });
+
+  // Toggle New Tweet
+  const $button = $(`#toggle-new-tweet`);
+  $button.click(function(event) {
+    $(`.new-tweet`).slideToggle();
   });
 });
 
